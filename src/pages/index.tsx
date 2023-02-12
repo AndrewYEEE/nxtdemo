@@ -5,33 +5,34 @@ import styles from '@/styles/Home.module.css'
 import React, {useEffect, useState} from 'react' //按control可以找報*.d.ts宣告檔
 import { GetServerSideProps } from 'next'
 import { GetStaticProps } from 'next'
-
+import styled from "styled-components";
 const inter = Inter({ subsets: ['latin'] })
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
 
 //================CSR=====================//
-export default function Home() {
-  const [post, setPost] = useState<Post>(); 
+// interface Post {
+//   userId: number;
+//   id: number;
+//   title: string;
+//   body: string;
+// }
+
+// export default function Home() {
+//   const [post, setPost] = useState<Post>(); 
   
-  useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then((res) => res.json())
-    .then((res) => setPost(res));
-  },[]);
+//   useEffect(()=>{
+//     fetch("https://jsonplaceholder.typicode.com/posts/1")
+//     .then((res) => res.json())
+//     .then((res) => setPost(res));
+//   },[]);
   
-  return (
-    <>
-      <h1>{post?.title}</h1>
-      <p>{post?.body}</p>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <h1>{post?.title}</h1>
+//       <p>{post?.body}</p>
+//     </>
+//   )
+// }
 
 //================SSR===================//
 // interface HomeProps{
@@ -70,3 +71,17 @@ export default function Home() {
 //     },
 //   }
 // }
+
+
+
+const Container = styled.div`
+  text-align: center;
+`
+
+const Home=()=>{
+  return (
+    <Container>Home</Container>
+  )
+}
+
+export default Home;
