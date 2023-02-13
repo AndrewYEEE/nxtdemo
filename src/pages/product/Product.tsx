@@ -9,7 +9,7 @@ import {
   ProductTitle,
   ProductDescription,
   ProductPrice,
-} from "./ProductCard.style";
+} from "../../styles/ProductCard.style";
 
 interface ProductCardProps {
   product: ProductType;
@@ -17,7 +17,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, all }: ProductCardProps) => {
-  const { id, image, title, description, price } = product;
+  console.log(product)
+  const { id, image, title, description, price } = product  || {};
   return (
     <Product key={id}>
       <ImageWrapper>

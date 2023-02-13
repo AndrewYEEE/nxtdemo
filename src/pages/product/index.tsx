@@ -1,7 +1,8 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import { useRouter } from 'next/router'
 import { sortByPrice, Direction } from "../../data/fake-data";
-import { PageTitle, ProductGallery, PriceFilter } from "./index.style";
+import { PageTitle, ProductGallery, PriceFilter } from "../../styles/index.style";
+import { GetStaticPaths } from "next";
 // import ProductCard from "./Product";
 
 // Whenever you are creating a component that has dynamic data. Try importing that component in below mentioned format. 
@@ -12,7 +13,7 @@ const ProductCard = dynamic(() => import("./Product"), {
 });
 
 
-const Home = () => {
+const ProductHome = () => {
     const [direction, setDirection] = useState<Direction>("ASC");
     const router = useRouter();
 
@@ -50,4 +51,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default ProductHome;

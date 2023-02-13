@@ -4,7 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import React, {useEffect, useState} from 'react' //按control可以找報*.d.ts宣告檔
 import { GetServerSideProps } from 'next'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetStaticPaths  } from 'next'
 import styled from "styled-components";
 const inter = Inter({ subsets: ['latin'] })
 
