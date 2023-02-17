@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import React, {useEffect, useState} from 'react' //按control可以找報*.d.ts宣告檔
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths  } from 'next'
 import styled from "styled-components";
-const inter = Inter({ subsets: ['latin'] })
+import { useRouter } from 'next/router'
+import Layout from '@/layout/Layout'
 
 
 //================CSR=====================//
@@ -74,14 +74,55 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 
-const Container = styled.div`
-  text-align: center;
-`
+// const Container = styled.div`
+//   text-align: center;
+// `
 
-const Home=()=>{
+// const Home=()=>{
+//   return (
+//     <Container>Home</Container>
+//   )
+// }
+
+
+//=====================練習prefetch功能======================//
+// import type { NextPage } from "next";
+// import Link from "next/link";
+
+// const Home: NextPage = () => {
+//   return (
+//     <Link href="/products">
+//       <a>link to products</a>
+//     </Link>
+//   )
+// }
+
+//=====================練習prefetch功能2======================//
+// const Home: NextPage = () =>{
+//   const router = useRouter();
+//   useEffect(()=>{
+//     router.prefetch("/products");
+//   },[]);
+
+//   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) =>{
+//     e.preventDefault();
+//     router.push("/products");
+//   }
+//   return (
+//     <div>
+//       <button onClick={(e)=>{handleClick(e)}}>to /products</button>
+//     </div>
+//   )
+// }
+
+//====================一般練習======================//
+const Home = ()=>{
   return (
-    <Container>Home</Container>
+    <Layout>
+      <div>You are in /</div>
+    </Layout>
   )
 }
+
 
 export default Home;
